@@ -47,6 +47,8 @@ Midi settings used on Elektron synth:
 
 This is a proof of concept that will advance a Digitone (and likely Digitakt) through the first 8 patterns automatically. It may need one manual program change on the Digitone to start the loop.
 
+Source: [experiment1.js]
+
 Running it
 
 ```sh
@@ -110,7 +112,9 @@ m: unknown(b4): 120, 0 d: 0.00001573
 ```
 
 
-## Planned Features
+## Projects
+
+These are a few ideas I would like to develop into usable projects. If you want to join in, please reach out to me or file an issue or PR :)
 
 ### Song-mode sequencer
 
@@ -118,13 +122,19 @@ Build a very simple interface that can sequence up enough pattern changes to aut
 
 Why? These instruments allow you to sequence up multiple patterns that will play automatically, but it requires difficult press & hold key combinations. They cannot be saved and played back as part of a project. This can make it hard to keep things moving in a live performance if you want to sequence up the next several patterns but use track mutes and tweak synth parameters as the patterns progress.
 
-[experiment1] was an exercise to be able to determine when midi program changes were sent by the Digitone, and when they needed to be applied for a smooth transition.
+[experiment1](#experiment1) was an exercise to be able to determine when midi program changes were sent by the Digitone, and when they needed to be applied for a smooth transition.
 
 To build this into a working setup, a few more things need to be considered:
 
 - [ ] What to do when "stop" is sent from the synth. It sends a midi program change so you can confirm what pattern it stopped on. Should that be used as the starting point for the next patterns?
 - [ ] Midi pattern change events take effect immediately, so they need to be sent after the last step in a pattern. If all patterns are the same length, you can count midi clock events to track progress. If they're different lengths, then what?
 
+### Sysex Project Backup
+
+There's no way to back up a project to external media built-in. Projects, instruments and patterns can be sent via sysex though. Make it easy to identify what was sent, and copy the exported files to a USB drive or upload to a Git repo. Git is attractive to track multiple versions of a project. Eventually, maybe a diff could be written that could tell what changed between one project and another.
+
+
+<!-- references -->
 
 [experiment1.js]: experiment1.js
 
