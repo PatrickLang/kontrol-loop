@@ -112,6 +112,17 @@ m: unknown(b4): 120, 0 d: 0.00001573
 ```
 
 
+### Experiment2 - Exposing a REST endpoint for out-of-process UI
+
+Source: [experiment2]
+
+I picked up a nice little OLED display with a few buttons. With a d-pad and two buttons, it should be enough to build a scrolling display of past & next programs being played over midi. Unfortunately, it's an I2C device and not a native Linux frame buffer/output device. There's a nice library that can serve a frame buffer over I2C and do basic drawing - [SSD1306](https://github.com/adafruit/Adafruit_CircuitPython_SSD1306) that's implemented in CircuitPython. For prototyping, I'll try splitting the control loop into one process (like experiment1), and UI into another. I actually like this approach long-term so I can experiment with different UI options such as the OLED+buttons, or HTML+JS on a phone.
+
+```bash
+node experiment2.js &
+sudo python3 ui.py
+```
+
 ## Projects
 
 These are a few ideas I would like to develop into usable projects. If you want to join in, please reach out to me or file an issue or PR :)
