@@ -123,6 +123,12 @@ node experiment2.js &
 sudo python3 ui.py
 ```
 
+## Midi Routing
+
+[simple-midi-router](simple-midi-router/README.md)
+
+I wanted to try hooking up all the devices through USB instead, including a Novation Launch Control XL which only supports USB. It works pretty well. I don't know if the latency through Alsa MIDI is better or worse than normal MIDI on DIN-5 connections yet.
+
 ## Projects
 
 These are a few ideas I would like to develop into usable projects. If you want to join in, please reach out to me or file an issue or PR :)
